@@ -10,18 +10,18 @@ const Hero: React.FC = () => {
     triggerOnce: true
   });
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Background pattern */}
 
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6  lg:px-8 text-center">
+        <div className="max-w-4xl  mx-auto">
           {/* Main headline */}
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-6  leading-tight"
           >
             <motion.span
               initial={{ opacity: 0 }}
