@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Ubuntu Mono', monospace;
+  }
+}
+
+/* Carousel Customization */
+.slick-prev,
+.slick-next {
+  z-index: 10;
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #ffd504 0%, #e71c76 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
