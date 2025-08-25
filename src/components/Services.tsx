@@ -80,11 +80,11 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8">
             Our <span className="gradient-text">ACE</span> Offering
           </h2>
-          <p className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
-            <span className="bg-gradient-to-r from-[#ffd504] to-[#e71c76] bg-clip-text text-transparent font-bold text-3xl">Activations • Content • Events</span>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
+            <span className="bg-gradient-to-r from-[#ffd504] to-[#e71c76] bg-clip-text text-transparent font-bold text-xl sm:text-2xl md:text-3xl">Activations • Content • Events</span>
           </p>
           <div className="w-32 h-2 bg-gradient-to-r from-[#ffd504] to-[#e71c76] mx-auto mt-8 rounded-full"></div>
         </div>
@@ -95,7 +95,7 @@ const Services: React.FC = () => {
             <button
               key={index}
               onClick={() => setActiveService(index)}
-              className={`group relative flex items-center gap-4 px-10 py-6 rounded-2xl font-bold text-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 ${
+              className={`group relative flex items-center gap-4 px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl font-bold text-base sm:text-lg md:text-xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 ${
                 activeService === index
                   ? `bg-gradient-to-r ${service.bgColor} text-white shadow-2xl ${service.glowColor}`
                   : 'bg-white/10 text-gray-300 hover:bg-white/20 border border-gray-600'
@@ -122,10 +122,10 @@ const Services: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-4xl md:text-5xl font-bold mb-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   {services[activeService].title}
                 </h3>
-                <p className="text-2xl leading-relaxed opacity-90 font-light">
+                <p className="text-base sm:text-xl md:text-2xl leading-relaxed opacity-90 font-light">
                   {services[activeService].description}
                 </p>
               </div>
@@ -141,7 +141,7 @@ const Services: React.FC = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-white text-lg group-hover:text-[#ffd504] transition-colors duration-300">
+                  <span className="font-bold text-white text-sm sm:text-base md:text-lg group-hover:text-[#ffd504] transition-colors duration-300">
                     {offering}
                   </span>
                   <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-[#e71c76] group-hover:translate-x-2 group-hover:scale-125 transition-all duration-300" />
@@ -152,7 +152,7 @@ const Services: React.FC = () => {
 
           {/* Explore More Button */}
           <div className="text-center">
-            <button className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-[#e71c76] to-[#d1185f] text-white px-12 py-6 rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-[#e71c76]/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 overflow-hidden">
+            <button className="group relative inline-flex items-center gap-4 bg-gradient-to-r from-[#e71c76] to-[#d1185f] text-white px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 rounded-2xl font-bold text-base sm:text-lg md:text-xl hover:shadow-2xl hover:shadow-[#e71c76]/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#ffd504] to-[#e6c004] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <ExternalLink size={24} className="relative z-10 group-hover:animate-pulse" />
               <span className="relative z-10">Explore {services[activeService].title}</span>

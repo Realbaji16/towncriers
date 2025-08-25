@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, TrendingUp } from 'lucide-react';
+import { Star, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '../styles/carousel.css';
 
 const Portfolio: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,7 +62,7 @@ const Portfolio: React.FC = () => {
         {/* Our Footprints */}
         <div className="mb-24">
           <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="text-5xl md:text-7xl font-bold text-black mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-8">
               Our <span className="gradient-text">Footprints</span>
             </h2>
             <p className="text-2xl text-gray-700 max-w-3xl mx-auto font-light">
@@ -67,11 +71,53 @@ const Portfolio: React.FC = () => {
             <div className="w-32 h-2 bg-gradient-to-r from-[#ffd504] to-[#e71c76] mx-auto mt-8 rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1.2}
+              slidesToScroll={1}
+              autoplay={true}
+              autoplaySpeed={3000}
+              centerMode={true}
+              centerPadding="40px"
+              arrows={true}
+              nextArrow={<div className="slick-next"><ChevronRight className="w-6 h-6 text-[#e71c76]" /></div>}
+              prevArrow={<div className="slick-prev"><ChevronLeft className="w-6 h-6 text-[#e71c76]" /></div>}
+              className="footprints-carousel"
+            >
+              {footprintBrands.map((brand, index) => (
+                <div key={index} className="px-2">
+                  <div className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#e71c76]/20 transition-all duration-500 border border-gray-100 cursor-pointer">
+                    <div className="text-center">
+                      <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                        <img
+                          src={brand.logo}
+                          alt={`${brand.name} logo`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <h4 className="font-bold text-base text-black mb-2 group-hover:text-[#e71c76] transition-colors duration-300 truncate">
+                        {brand.name}
+                      </h4>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                        {brand.category}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {footprintBrands.map((brand, index) => (
               <div
                 key={index}
-                className={`group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#e71c76]/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border border-gray-100 cursor-pointer transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                className={`group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#e71c76]/20 transition-all duration-500 hover:-translate-y-4 hover:scale-105 border border-gray-100 cursor-pointer ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="text-center">
@@ -82,7 +128,7 @@ const Portfolio: React.FC = () => {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <h4 className="font-bold text-lg text-black mb-2 group-hover:text-[#e71c76] transition-colors duration-300">
+                  <h4 className="font-bold text-base sm:text-lg text-black mb-2 group-hover:text-[#e71c76] transition-colors duration-300">
                     {brand.name}
                   </h4>
                   <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
