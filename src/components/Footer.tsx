@@ -13,11 +13,9 @@ const Footer: React.FC = () => {
           {/* Logo & Tagline */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img
-                src="/towncriers.png"
-                alt="Towncriers Logo"
-                className="h-16 w-auto"
-              />
+              <span className="text-2xl font-bold">
+                TOWN<span className="text-[#e71c76]">CRIERS</span>
+              </span>
             </div>
             <p className="text-black text-sm">
               Creating experiences that connect consumers to brands since 1995.
